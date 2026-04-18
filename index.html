@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enriquez Santiago — Técnico en Computadoras</title>
+  <meta name="description" content="Servicio técnico profesional de computadoras. Diagnóstico, reparación y mantenimiento." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #F5F3EF;
+      --surface:   #FFFFFF;
+      --border:    #E0DDD8;
+      --ink:       #1A1917;
+      --ink-mid:   #5A5753;
+      --ink-light: #9A9490;
+      --accent:    #1B4FD8;
+      --accent-dk: #1340B0;
+      --accent-bg: #EEF2FF;
+      --tag-bg:    #EDECE9;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── HEADER ─────────────────────────────────────── */
+    header {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 7vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      font-weight: 300;
+      max-width: 440px;
+      line-height: 1.55;
+    }
+
+    /* ── CARDS ──────────────────────────────────────── */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(27, 79, 216, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--accent-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-body { flex: 1; }
+
+    .card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 2px;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+      font-weight: 300;
+    }
+
+    .card-arrow {
+      flex-shrink: 0;
+      color: var(--ink-light);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .card:hover .card-arrow {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    /* ── SERVICES ───────────────────────────────────── */
+    .section {
+      margin-top: 52px;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+
+    .section-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeUp 0.6s ease 0.5s both;
+    }
+
+    .footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--ink-mid);
+    }
+
+    .footer-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+    }
+
+    /* ── ANIMATION ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE ─────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .page { padding: 0 16px 64px; }
+      header { padding: 40px 0 32px; }
+      .card { padding: 20px; gap: 16px; }
+      footer { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <p class="eyebrow">Técnico Profesional y Personal Informática</p>
+      <h1>Enriquez<br>Santiago</h1>
+      <p class="subtitle">Diagnóstico, reparación y mantenimiento de equipos informáticos.</p>
+    </header>
+
+    <div class="cards">
+
+      <!-- INSTAGRAM_LINK_START -->
+      <a href="https://www.instagram.com/enriquez_informatica" target="_blank" rel="noopener" class="card">
+      <!-- INSTAGRAM_LINK_END -->
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="card-label">Redes</p>
+          <p class="card-title">Instagram</p>
+          <p class="card-desc">Publicaciones técnicas y trabajos realizados</p>
+        </div>
+        <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <!-- CONTACT_SECTION_START -->
+      <a href="https://wa.me/5493795586159" target="_blank" rel="noopener" class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="card-label">Contacto</p>
+          <p class="card-title">WhatsApp</p>
+          <p class="card-desc">Consultas y turnos</p>
+        </div>
+        <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <!-- CONTACT_SECTION_END -->
+
+      <!-- CV -->
+      <a href="cv.pdf" target="_blank" rel="noopener" class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="card-label">Sobre mi</p>
+          <p class="card-title">CV</p>
+          <p class="card-desc">Formación, experiencia y certificaciones</p>
+        </div>
+        <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+    </div>
+
+    <!-- Servicios -->
+    <div class="section">
+      <p class="section-title">Servicios</p>
+      <div class="tags">
+        <span class="tag">Diagnóstico</span>
+        <span class="tag">Reparación de hardware</span>
+        <span class="tag">Reinstalación de SO</span>
+        <span class="tag">Eliminación de virus</span>
+        <span class="tag">Mantenimiento preventivo</span>
+        <span class="tag">Recuperación de datos</span>
+        <span class="tag">Actualización de componentes</span>
+        <span class="tag">Desbloqueo de Netbook</span>
+        <span class="tag">Armado de setup</span>
+      </div>
+    </div>
+
+    <footer>
+      <span class="footer-name">Enriquez Santiago</span>
+      <span class="footer-badge">Técnico Profesional y Personal Informática</span>
+    </footer>
+
+  </div>
+</body>
+</html>
